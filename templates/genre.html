@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+{% block genre %}
+
+<ul id="genres">
+	{% for genre in genres %}
+	<li id="{{genre.name}}">
+		<div ><a href="/{{genre.name}}">{{ genre.name }}</a></div>
+	</li>
+	{% endfor%}
+</ul>
+
+<div id="tvitems">
+
+	{% if login_session['email'] and genre %}
+	<div id="create_tvitem_btn" class="btn btn-default">
+		<a href="/{{ genre.name }}/create"> 
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add TV Show
+		</a>
+	</div>
+	{% endif %}
+
+	<ul id="tvitem_list">
+		{% for tvitem in tvitems %}
+		<li>
+			<a href="/{{tvitem.genre.name}}/{{tvitem.name}}">
+				{% if tvitem.img_url %}
+				<img src="{{ tvitem.img_url }}" alt="tv poster">
+				{% else %}
+				<img src="/static/blank_poster.png" alt="tv poster">
+				{% endif %}
+				<h3>{{ tvitem.name }}</h3>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	console.log({{genre.name}})
+	// if ({{genre}}) {
+		$("#{{genre.name}}").css({"background-color": "#B2362A"});
+		$("#{{genre.name}} a").css({"color": "white"})
+	// }
+	
+})
+</script>
+
+{% endblock %}
+
+

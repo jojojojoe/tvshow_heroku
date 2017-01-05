@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block delete_tvitem %}
+<div id="delete_tvitem">
+<!-- only logged in user can delete his own item -->
+	{% if login_session['email'] and login_session['email'] == tvitem.user.email%}
+	<form method="post">
+		<h1>Are you sure deleting &quot;{{tvitem.name}}&quot; ?</h1>
+		<input class="btn btn-danger btn-xs" type="submit" value="Delete">
+		<a class="btn btn-default btn-xs" href="/{{tvitem.genre.name}}/{{tvitem.name}}">Cancel</a>
+	</form>
+	{% endif%}
+</div>
+{% endblock %}

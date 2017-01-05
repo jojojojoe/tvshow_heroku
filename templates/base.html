@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<title>Your TV Shows</title>
+	<!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+	<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+	<!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
+</head>
+<body>
+
+<nav>
+	<div id="home_btn">
+		<a href="/">Home</a>
+	</div>
+	<!-- if logged in, show user's pthoto -->
+	{% if login_session['email'] %}
+	<div id="login_out">
+		{% if login_session['picture'] %}
+		<img id="user_img" src="{{ login_session['picture'] }}" alt="user photo">
+		{% else %}
+		<img id="user_img" src="/static/blank_user.jpg" alt="user photo">
+		{% endif %}
+		{% if login_session['social'] == 'google' %}
+			<a href="/logout">Logout</a>
+		{% elif login_session['social'] == 'facebook' %}
+			<a href="/logout" onclick="FB.logout();">Logout</a>
+		{% endif %}
+		</div>
+	{% else %}
+	<div id="login_out">
+		<a href="/login">Login</a>
+	</div>
+	{% endif %}
+</nav>
+
+<div id="main_content">
+	<div id="flash_msg">
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+		      <h4>{{ message }}</h4>
+		    {% endfor %}
+		{% endif %}
+	{% endwith %}
+	</div>
+
+	{% block login %}
+	{% endblock %}
+
+	{% block welcome %}
+	{% endblock%}
+
+	{% block genre %}
+	{% endblock %}
+
+	{% block tvitem %}
+	{% endblock %}
+
+	{% block create_tvitem %}
+	{% endblock %}
+
+	{% block edit_tvitem %}
+	{% endblock %}
+
+	{% block delete_tvitem %}
+	{% endblock %}
+</div>
+</body>
+</html>

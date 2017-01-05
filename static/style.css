@@ -1,0 +1,252 @@
+* {
+	box-sizing: border-box;
+}
+
+* a {
+	text-decoration: none;
+}
+
+* ul {
+	list-style: none;
+	padding-left: 0px;
+}	
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: #F2F2F2;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+/* nav bar */
+nav {
+	width: 100%;
+	background-color: #B2362A;
+	position: fixed;
+}
+
+#home_btn {
+	display: inline-block;
+	color: white;
+	font-size: 1.5em;
+	margin: 10px;
+	margin-left: 50px;
+}
+
+#home_btn a {
+	color: white;
+}
+
+#login_out {
+	display: inline-block;
+	float: right;
+	margin: 10px 50px 10px 10px;
+}
+
+#login_out a {
+	color: white;
+}
+
+#user_img {
+	width: 30px;
+	height: 30px;
+	border: solid white 1px;
+}
+
+/* nav bar end */
+
+#login {
+	text-align: center;
+}
+
+
+/* main content */
+#main_content {
+	padding-top: 80px;
+	width: 100%;
+}
+
+/* left side bar */
+#genres {
+	width: 10%;
+	border-radius: 0px 5px 5px 0px;
+	position: fixed;
+	margin-top: 100px;
+	padding-left: 0px;
+	background-color: white;
+}
+
+#genres li {
+	border-radius: 0px 5px 5px 0px;
+	text-align: center;
+}
+
+.selected {
+	background-color: red;
+}
+
+#genres li:hover {
+	background-color: #B2362A;
+}
+
+#genres a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	color: black;
+}
+
+#genres a:hover {
+	text-decoration: none;
+	color: white;
+}
+/* left side bar end */
+/* right side  */
+#tvitems, #tvitem, #create_tvitem, #delete_tvitem {
+	display: inline-block;
+	width: 75%;
+	/* height: 100%; */
+	margin-left: 12%;
+	border: solid #bdc7d0 1px;
+	border-radius: 3px;
+	padding: 10px;
+}
+
+#create_tvitem_btn {
+	padding: 0px;
+	margin-bottom: 20px;
+}
+
+#create_tvitem_btn a {
+	display: inline-block;
+	padding: 10px;
+}
+
+#create_tvitem_btn a:hover {
+	text-decoration: none;
+}
+
+#create_tvitem_btn span {
+	position: static;
+}
+
+#tvitem_list li {
+	padding: 10px;
+	border-radius: 3px;
+}
+
+#tvitem_list li:hover {
+	background-color: white;
+}
+
+#tvitem_list img {
+	width: 100px;
+	height: 60px;
+}
+
+#tvitem_list h3 {
+	display: inline-block;
+	padding-left: 10px;
+	margin: 0px;
+}
+
+#tvitem_list a {
+	color: #4b5463;
+	display: inline-block;
+	width: 100%;
+	vertical-align: center;
+}
+
+#tvitem_list a:hover {
+	text-decoration: none;
+}
+/* right side end */
+/* main content end */
+
+/* show single tvitem */
+#tvitem {
+	text-align: center;
+}
+
+#tvitem hr {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: black;
+	border-bottom: solid black 1px;
+	width: 60%;
+}
+
+#tvitem h3 {
+	text-align: left;
+	width: 60%;
+	margin: 30px auto 5px auto;
+}
+
+#tvitem p{
+	width: 60%;
+	margin: 0 auto;
+	text-align: left;
+	padding: 5px 15px;
+}
+
+#tvitem a {
+	margin: 5px;
+}
+
+/* show single tvitem end */
+
+/* create a tvitem */
+
+#create_tvitem {
+	text-align: center;
+}
+
+#new_tvitem_name, #new_tvitem_description, #new_tvitem_img {
+	width: 70%;
+	border-radius: 3px;
+	margin: 10px;
+	border: solid black 1px;
+}
+
+#new_tvitem_name {
+	min-height: 30px;
+}
+
+#new_tvitem_description {
+	min-height: 200px;
+}
+
+textarea {
+	resize: none;
+}
+
+
+/* create a tvitem end */
+
+/* delete a tvitem */
+#delete_tvitem {
+	text-align: center;
+}
+/* delete a tvitem end */
+
+.btn {
+	margin: 5px;
+}
+
+#flash_msg {
+	text-align: center;
+}
+#flash_msg h4 {
+	display: inline-block;
+	color: #31af08;
+	border-bottom: solid #bdc7d0 1px;
+}
+
+#error_msg {
+	color: red;
+}

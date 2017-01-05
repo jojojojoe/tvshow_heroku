@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block tvitem %}
+<div id="tvitem">
+	<!-- if image does exixt -->
+	{% if tvitem.img_url %}
+	<img src="{{ tvitem.img_url }}" alt="tvshow poster">
+	{% else %}
+	<img src="/static/blank_poster.png" alt="tv poster">
+	{% endif %}
+	<h3>{{ tvitem.name }}</h3>
+	<hr>
+	<p>{{ tvitem.description }}</p>
+	<!-- only item creater can edit -->
+	{% if  login_session['email'] and login_session['email'] == tvitem.user.email%}
+	<a class="btn btn-default btn-xs" href="/{{tvitem.genre.name}}/{{tvitem.name}}/edit"><span class="glyphicon glyphicon-edit"></span>&nbsp;Edit</a>
+	<a class="btn btn-danger btn-xs" href="/{{tvitem.genre.name}}/{{tvitem.name}}/delete"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete</a>
+</div>
+
+{% endif %}
+{% endblock %}

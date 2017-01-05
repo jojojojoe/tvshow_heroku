@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block create_tvitem%}
+<div  id="create_tvitem">
+	<!-- only logged in user can delete his own item -->
+	{% if login_session['email'] %}
+		<!-- edit item -->
+		{% if tvitem != None and login_session['email'] == tvitem.user.email %}
+		<form method="post">
+			<input id="new_tvitem_name" type="text" name="name" placeholder="name" value={{tvitem.name}}>
+			<textarea id="new_tvitem_description" name="description" placeholder="description">{{tvitem.description}}</textarea>
+			<textarea id="new_tvitem_img" name="img_url" placeholder="Image URL(optional)">{{tvitem.img_url}}</textarea><br>
+			<input class="btn btn-default btn-xs" type="submit" value="Save">
+			<a class="btn btn-danger btn-xs" href="/{{tvitem.genre.name}}">Cancel</a><br>
+		</form>
+
+		<!-- create item -->
+		{% elif genre != None %}
+		<form method="post">
+			<input id="new_tvitem_name" type="text" name="name" placeholder="name" value={{tvitem_name}}>
+			<textarea id="new_tvitem_description" name="description" placeholder="description">{{tvitem_description}}</textarea>
+			<textarea id="new_tvitem_img" name="img_url" placeholder="Image URL(optional)">{{tvitem_img_url}}</textarea><br>
+			<input class="btn btn-default btn-xs" type="submit" value="Save">
+			<a class="btn btn-danger btn-xs" href="/{{genre.name}}">Cancel</a><br>
+		</form>
+		{% endif %}
+	<!-- if not login, show some messages to user -->
+	{% else %}
+	<h3>Please Login.</h3>
+	{% endif %}
+	<!-- erro message -->
+	<span id="error_msg">{{error}}</span>
+</div>
+{% endblock%}
